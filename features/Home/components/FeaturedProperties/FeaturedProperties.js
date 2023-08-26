@@ -22,6 +22,7 @@ marginBottom="3rem"
 paddingX="2rem"
 textAlign="center"
 >A selection of our best properties</Text>
+
    </Box>
 </Box>
      );
