@@ -1,5 +1,5 @@
-import Footer from "@/features/data/common/modules/Footer";
-import Navigation from "@/features/data/common/modules/Navigation";
+import Footer from "@/features/common/modules/Footer";
+import Navigation from "@/features/common/modules/Navigation";
 
 const DefaultLayout  = ({children}) => {
     return (  

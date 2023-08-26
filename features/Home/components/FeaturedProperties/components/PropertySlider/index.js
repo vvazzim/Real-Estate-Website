@@ -1,0 +1,1 @@
+export {defaum} from "./PropertySlider";
