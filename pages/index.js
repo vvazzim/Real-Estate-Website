@@ -10,9 +10,9 @@ export default function Home(featuredProperties) {
   <DefaultLayout>
   <HeroBanner/>
   <FeaturedProperties featuredProperties={featuredProperties}/>
-<MeetTheTeam/>
-<Partners/>
-<Testimonials/>
+  <MeetTheTeam/>
+  <Partners/>
+  <Testimonials/>
   </DefaultLayout>
     </>
   );
