@@ -5,8 +5,10 @@ import { Box , SimpleGrid} from '@chakra-ui/react';
 const Properties = ({properties}) => {
     return ( 
 <DefaultLayout>
-<Box backgroundColor={"#f7f8f9"} padding="3rem">
-<Box  maxWidth={"1280px"} margin="0 auto"></Box>
+<Box backgroundColor={"#f7f8f9"} 
+padding="3rem">
+<Box  maxWidth={"1280px"} 
+margin="0 auto"></Box>
 <SimpleGrid column={{base:"1",sm:"3"}}
             gap={{base:'0',sm:'2rem'}}
 >

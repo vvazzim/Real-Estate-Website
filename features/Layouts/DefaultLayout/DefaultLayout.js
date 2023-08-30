@@ -7,7 +7,7 @@ const DefaultLayout  = ({children}) => {
  <Navigation/>
  {children}
  <Footer/>
- <>TEST </>
+
  
  </>
 
