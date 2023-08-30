@@ -1,4 +1,3 @@
-// prisma/schema.prisma
 
 generator client {
   provider = "prisma-client-js"
@@ -9,3 +8,58 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Property {
+  property_id   Int      @id @default(autoincrement())
+  title         String
+  type          String
+  description   String?
+  location      String
+  floor         Int?
+  area          Float?
+  price         Decimal?
+  availability  Boolean?
+  catalog       String?
+  map           String?
+  photo         String?
+}
+
+model Appointment {
+  appointment_id  Int      @id @default(autoincrement())
+  date            DateTime
+  first_name      String
+  last_name       String
+  email           String
+  phone           String
+  country         String?
+  state           String?
+  profession      String?
+  financing_type  String?
+  housing_type    String?
+}
+
+model Feedback {
+  feedback_id    Int      @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  email          String
+  phone          String
+  request_type   String?
+  message        String?
+}
+
