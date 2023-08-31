@@ -8,7 +8,7 @@ const NavigationDesktop = () => {
     <Box color="blue.600" paddingY="2rem" backgroundColor="white"
      display = {{base:"none" ,md:"block"}}>
        
-<Box maxWidth="1280px" margin ="0 auto">
+<Box maxWidth="1280px" margin ="50 auto">
 <Flex alignItems="center" justifyContent="space-between">
 <Link href="/">
 <Box display='flex' gap="2" alignItems="center">
