@@ -18,6 +18,14 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
+
+
 
 const HeroForm = () => {
   const {
@@ -27,6 +35,7 @@ const HeroForm = () => {
   } = useForm();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -35,6 +44,11 @@ const HeroForm = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const closeSuccessAlert = () => {
+    setIsSuccess(false);
+  };
+
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -52,15 +66,33 @@ const HeroForm = () => {
     // Mise à jour de l'état local avec les données du formulaire
     console.log(data);
     setFormData(data);
-
+    setIsModalOpen(false);
     try {
       // Envoyer les données du formulaire au backend
       const response = await axios.post("http://localhost:8081/appointment", data); // Utilisez l'URL appropriée pour votre backend
 
       // Traitez la réponse du backend ici si nécessaire
       console.log("Backend Response:", response.data);
+
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 4000);
+
+      // Réinitialisez les champs du formulaire manuellement
+      setFormData({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        country: "",
+        state: "",
+        profession: "",
+        financing_type: "",
+        housing_type: "",
+        gdpr: false,
+      });
     } catch (error) {
-      // Gérez les erreurs de l'API ici
       console.error("API Error:", error);
     }
   };
@@ -222,6 +254,36 @@ const HeroForm = () => {
             </ModalBody>
           </ModalContent>
         </Modal>
+
+        {/*{isSuccess && (*/}
+        {/*    <Alert*/}
+        {/*        status="success"*/}
+        {/*        variant="subtle"*/}
+        {/*        flexDirection="column"*/}
+        {/*        alignItems="center"*/}
+        {/*        justifyContent="center"*/}
+        {/*        textAlign="center"*/}
+        {/*        height="200px"*/}
+        {/*        onClose={closeSuccessAlert}*/}
+        {/*        style={{*/}
+        {/*          position: "fixed",*/}
+        {/*          top: "0",*/}
+        {/*          left: "0",*/}
+        {/*          right: "0",*/}
+        {/*          backgroundColor: "green",*/}
+        {/*          zIndex: "9999",*/}
+        {/*        }}*/}
+        {/*    >*/}
+        {/*      <AlertIcon boxSize="40px" mr={0} />*/}
+        {/*      <AlertTitle mt={4} mb={1} fontSize="lg">*/}
+        {/*        Application submitted!*/}
+        {/*      </AlertTitle>*/}
+        {/*      <AlertDescription maxWidth="sm">*/}
+        {/*        Thanks for submitting your application. Our team will get back to*/}
+        {/*        you soon.*/}
+        {/*      </AlertDescription>*/}
+        {/*    </Alert>*/}
+        {/*)}*/}
       </>
   );
 };
