@@ -23,6 +23,38 @@ app.get("/feedback", async (req, res) => {
     }
 });
 
+
+app.post("/feedback", async (req, res) => {
+    try {
+        console.log(req.body);
+        // Récupérez les données du corps de la requête
+        const {
+            first_name,
+            last_name,
+            email,
+            phone,
+            request_type,
+            message
+        } = req.body;
+
+        // Créez un nouvel enregistrement dans la table Feedback avec la date et l'heure actuelles
+        const newFeedback = await prisma.$queryRaw`INSERT INTO Feedback (first_name, last_name, email, phone, request_type, message)
+                                                     VALUES (${first_name}, ${last_name}, ${email}, ${phone}, ${request_type}, ${message})`;
+
+        // Renvoyez les données du feedback créé en réponse
+        res.json(newFeedback);
+    } catch (error) {
+        console.error("Erreur lors de la création du feedback : " + error);
+        res.status(500).json("Erreur serveur");
+    }
+});
+
+
+
+
+
+
+
 app.get("/appointment", async (req, res) => {
     try {
         const appointment = await prisma.appointment.findMany();

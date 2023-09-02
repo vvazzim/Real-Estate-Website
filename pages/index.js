@@ -4,6 +4,7 @@ import MeetTheTeam from "@/features/Home/components/MeetTheteam/MeetTheTeam";
 import Partners from "@/features/Home/components/Partners";
 import Testimonials from "@/features/Home/components/Testimonials";
 import DefaultLayout from "@/features/Layouts/DefaultLayout";
+import FeedbackForm from "../features/Home/components/FeedbackForm";
 export default function Home(featuredProperties) {
   return (
     <>
@@ -11,7 +12,7 @@ export default function Home(featuredProperties) {
   <HeroBanner/>
   <FeaturedProperties featuredProperties={featuredProperties}/>
   <MeetTheTeam/>
-  <Partners/>
+  <FeedbackForm/>
   <Testimonials/>
   </DefaultLayout>
     </>
