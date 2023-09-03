@@ -16,6 +16,7 @@ import {
     AlertIcon,
     AlertTitle,
     AlertDescription,
+    Center,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -69,9 +70,12 @@ const FeedbackForm = () => {
 
     return (
         <>
+            <Center>
             <Button onClick={openModal} colorScheme="blue" fontSize="xl" marginTop="2rem">
                 Écrivez-nous
             </Button>
+            </Center>
+
 
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <ModalOverlay />

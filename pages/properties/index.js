@@ -9,15 +9,12 @@ const Properties = ({properties}) => {
 padding="3rem">
 <Box  maxWidth={"1280px"} 
 margin="0 auto"></Box>
-<SimpleGrid column={{base:"1",sm:"3"}}
-            gap={{base:'0',sm:'2rem'}}
->
-            
-{properties.map((property) =>
+    <SimpleGrid columns={{ base: 1, sm: 2 }} gap={{ base: '0', sm: '2rem' }}>
+        {properties.map((property) => (
+            <PropertyCard key={property.id} {...property} />
+        ))}
+    </SimpleGrid>
 
-<PropertyCard key={property.id}{...property}/>
-)}
-</SimpleGrid>
 
 </Box>
 
